@@ -730,8 +730,10 @@ public final class FlyoutUtils {
         }
 
         if (!allButtonsVideoId.isEmpty()) {
-            nextButtonIndex = app.morphe.extension.youtube.videoplayer.ServerDownloadButton
-                    .addFlyoutButton(flyoutPanel, nextButtonIndex, allButtonsVideoId);
+            if (app.morphe.extension.youtube.videoplayer.ServerDownloadButton.isPatchIncluded()) {
+                nextButtonIndex = app.morphe.extension.youtube.videoplayer.ServerDownloadButton
+                        .addFlyoutButton(flyoutPanel, nextButtonIndex, allButtonsVideoId);
+            }
 
             if (!(isMyTabHistoryFlyout && LocalQueuePatch.isEnabled())) {
                 nextButtonIndex = AddToQueuePatch.addFlyoutButton(
