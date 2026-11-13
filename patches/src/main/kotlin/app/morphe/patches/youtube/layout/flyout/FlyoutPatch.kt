@@ -27,6 +27,7 @@ import app.morphe.patches.youtube.misc.proto.elementProtoParserHookPatch
 import app.morphe.patches.youtube.shared.startVideoInformerPatch
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.setExtensionIsPatchIncluded
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -57,6 +58,8 @@ val flyoutPatch = patch(
     )
 
     execute {
+        setExtensionIsPatchIncluded("Lapp/morphe/extension/youtube/videoplayer/ServerDownloadButton;")
+
         // Add interface method to get protocol buffer.
         InteractiveStickerRendererGetEditViewFingerprint.let {
             val bufferField = it.instructionMatches.last().fieldReference
