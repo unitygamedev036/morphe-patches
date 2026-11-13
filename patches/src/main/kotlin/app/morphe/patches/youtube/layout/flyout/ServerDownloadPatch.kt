@@ -5,6 +5,7 @@ package app.morphe.patches.youtube.layout.flyout
 
 import app.morphe.patcher.patch.patch
 import app.morphe.patches.youtube.misc.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.shared.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.util.setExtensionIsPatchIncluded
 
 private const val EXTENSION_CLASS =
@@ -19,6 +20,8 @@ val serverDownloadPatch = patch(
         flyoutPatch,
         sharedExtensionPatch
     )
+
+    compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
         setExtensionIsPatchIncluded(EXTENSION_CLASS)
