@@ -14,7 +14,7 @@ private const val EXTENSION_CLASS =
 val serverDownloadPatch = patch(
     name = "Send to my server",
     description = "Adds a button to video menus to send the video to your self-hosted downloader.",
-    default = false
+    default = true
 ) {
     dependsOn(
         flyoutPatch,
